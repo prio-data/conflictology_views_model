@@ -1,0 +1,1 @@
+# 12_month_conflictology_views_model
