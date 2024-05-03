@@ -75,7 +75,7 @@ def views_conflictology_forecast(start_month_of_forecast, training_period, level
             qs_conflictology = (Queryset("conflictology", "country_month" if level == 'cm' else "priogrid_month")
 
                                 # target variable
-                                .with_column(Column("ln_ged_sb", from_table=f"ged2_{level}", from_column="ged_sb_best_sum_nokgi")
+                                .with_column(Column("ln_ged_sb", from_loa="country_month" if level == 'cm' else "priogrid_month", from_column="ged_sb_best_sum_nokgi")
                                              .transform.ops.ln()
                                              .transform.missing.fill()
                                              )
@@ -85,7 +85,7 @@ def views_conflictology_forecast(start_month_of_forecast, training_period, level
         if outcome == 'ns':
             qs_conflictology = (Queryset("conflictology", "country_month" if level == 'cm' else "priogrid_month")
                                 # target variable
-                                .with_column(Column("ln_ged_ns", from_table=f"ged2_{level}", from_column="ged_ns_best_sum_nokgi")
+                                .with_column(Column("ln_ged_ns", from_loa="country_month" if level == 'cm' else "priogrid_month", from_column="ged_ns_best_sum_nokgi")
                                              .transform.ops.ln()
                                              .transform.missing.fill()
                                              )
@@ -95,7 +95,7 @@ def views_conflictology_forecast(start_month_of_forecast, training_period, level
         if outcome == 'os':
             qs_conflictology = (Queryset("conflictology", "country_month" if level == 'cm' else "priogrid_month")
                                 # target variable
-                                .with_column(Column("ln_ged_os", from_table=f"ged2_{level}", from_column="ged_os_best_sum_nokgi")
+                                .with_column(Column("ln_ged_os", from_loa="country_month" if level == 'cm' else "priogrid_month", from_column="ged_os_best_sum_nokgi")
                                              .transform.ops.ln()
                                              .transform.missing.fill()
                                              )
@@ -328,7 +328,7 @@ def views_conflictology_forecast(start_month_of_forecast, training_period, level
             qs_conflictology = (Queryset("conflictology", "country_month" if level == 'cm' else "priogrid_month")
 
                                 # target variable
-                                .with_column(Column("ln_ged_sb", from_table=f"ged2_{level}", from_column="ged_sb_best_sum_nokgi")
+                                .with_column(Column("ln_ged_sb", from_loa="country_month" if level == 'cm' else "priogrid_month", from_column="ged_sb_best_sum_nokgi")
                                              .transform.ops.ln()
                                              .transform.missing.fill()
                                              )
@@ -338,7 +338,7 @@ def views_conflictology_forecast(start_month_of_forecast, training_period, level
         if outcome == 'ns':
             qs_conflictology = (Queryset("conflictology", "country_month" if level == 'cm' else "priogrid_month")
                                 # target variable
-                                .with_column(Column("ln_ged_ns", from_table=f"ged2_{level}", from_column="ged_ns_best_sum_nokgi")
+                                .with_column(Column("ln_ged_ns", from_loa="country_month" if level == 'cm' else "priogrid_month", from_column="ged_ns_best_sum_nokgi")
                                              .transform.ops.ln()
                                              .transform.missing.fill()
                                              )
@@ -348,7 +348,7 @@ def views_conflictology_forecast(start_month_of_forecast, training_period, level
         if outcome == 'os':
             qs_conflictology = (Queryset("conflictology", "country_month" if level == 'cm' else "priogrid_month")
                                 # target variable
-                                .with_column(Column("ln_ged_os", from_table=f"ged2_{level}", from_column="ged_os_best_sum_nokgi")
+                                .with_column(Column("ln_ged_os", from_loa="country_month" if level == 'cm' else "priogrid_month", from_column="ged_os_best_sum_nokgi")
                                              .transform.ops.ln()
                                              .transform.missing.fill()
                                              )
